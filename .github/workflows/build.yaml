@@ -20,7 +20,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
             args: >
-              -Dsonar.projectKey=severino
+              -Dsonar.projectKey=testesonar
               -Dsonar.organization=default-organization
               -Dsonar.sourceEncoding=UTF-8
               -Dsonar.language=php
