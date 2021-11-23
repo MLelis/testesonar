@@ -18,3 +18,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+            args: >
+              -Dsonar.projectKey=severino
+              -Dsonar.organization=default-organization
+              -Dsonar.sourceEncoding=UTF-8
+              -Dsonar.language=php
+              -Dsonar.coverage.exclusions=app/Providers/**/*,app/Console/**/*,bootstrap/**/*,config/**/*,database/**/*,public/**/*,resources/**/*,routes/**/*,storage/**/*,vendor/**/*,app/Http/Controllers/Auth/*,app/Exceptions/Handler.php,app/Http/Middleware/*,app/Http/Controllers/HomeController.php,app/Http/Requests/**/*,app/Mail/*,app/Services/**/*,app/Models/Traits/*,app/Helpers/*
+              -Dsonar.exclusions=public/**/*,vendor/**/*,resources/**/*,database/**/*
+              -Dsonar.test.inclusions=tests/**/*Test.php
+              -Dsonar.php.tests.reportPath=./tests/reports/phpunit.junit.xml
+              -Dsonar.php.coverage.reportPaths=./tests/reports/phpunit.coverage.xml
+              -Dsonar.cpd.exclusions=database/**/*
